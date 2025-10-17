@@ -1,16 +1,32 @@
 target: 10.10.154.62
 From our nmap scan, I found 3 ports open
-![[Pasted image 20251017185538.png]]
-ajp13 is the apache jserve protocol is used to send reverse proxy to the backend application server. It has a file read vulnerability which i exploited using metasploit and i was able to get the credentials to login using ssh
-![[Pasted image 20251017190923.png]]
+
+<img width="605" height="188" alt="image" src="https://github.com/user-attachments/assets/c72520ea-9315-45fa-af0a-018976f65774" />
+
+ajp13 is the apache jserve protocol used to send reverse proxy to the backend application server. It has a file read vulnerability which i exploited using metasploit and i was able to get the credentials to login using ssh
+
+<img width="605" height="378" alt="image" src="https://github.com/user-attachments/assets/a65ff042-f223-4515-90e5-e44322387be9" />
+
 finding the first flag was easy, i just had to use the find command to search for it - ```find / -type f -name user.txt 2>/dev/null```
-![[Pasted image 20251017191234.png]]
+
+<img width="495" height="63" alt="image" src="https://github.com/user-attachments/assets/626df96e-65ca-41f4-8fb2-a91e7c1116ef" />
+
 And this is where the main 'hacking' started hehe.
-Listing our current directory, there is an encypted file with its key, trying to decrypt this file needed a passphrase so i downloaded the file and the key to my own machine and used johntheripper tool ```gpg2john``` to find and decrypt the passphrase
-![[Pasted image 20251017191901.png]]
+Listing our current directory, there is an encypted file with its key, trying to decrypt this file needed a passphrase so i downloaded the file and the key to my own machine and used a johntheripper tool ```gpg2john``` to find and decrypt the passphrase
+
+<img width="606" height="183" alt="image" src="https://github.com/user-attachments/assets/33c0cd87-1235-4025-9238-f48d91194381" />
 
 'Alexandru' is the passphrase to decrypt the file and back to the target machine. i imported the key and tried to decrypt the file again with the passphrase and got the credentials for another user 'merlin'
-![[Pasted image 20251017192140.png]]
-i switched to the user and tried to gain root privilege. I used ```sudo -l``` to determine what commands i can run as the user 'merlin'![[Pasted image 20251017192316.png]]
-I found a way to exploit this in https://gtfobins.github.io/gtfobins/zip/#sudo and escalated privileges to read the root flag.
-![[Pasted image 20251017192721.png]]
+
+<img width="602" height="245" alt="image" src="https://github.com/user-attachments/assets/259b3d9f-33a8-4167-8492-9fbe36b156e5" />
+
+i switched to the user and tried to gain root privilege. I used ```sudo -l``` to determine what commands i can run as a sudoer
+
+<img width="604" height="63" alt="image" src="https://github.com/user-attachments/assets/1de63858-51a6-414a-8632-4a8d040580a0" />
+
+I found a way to exploit this in https://gtfobins.github.io/gtfobins/zip/#sudo and escalated privileges to read the root flag. And voila!
+
+<img width="586" height="193" alt="image" src="https://github.com/user-attachments/assets/aed61e6e-8b33-484f-a1f2-a99823405f3a" />
+
+
+~cyb3rl1lyy💻🌺
