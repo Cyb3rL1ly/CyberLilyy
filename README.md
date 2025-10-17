@@ -13,4 +13,4 @@ Cybersecurity Enthusiast- Aspiring Ethical Hacker!
 - Mastering Python Programming Language
 - Writing Bash scripts 
 
-⭐ _“Learn, Break, Build, Repeat”_ Cyb3rL1lyyy~
+⭐ _“Learn, Break, Build, Repeat”_ Cyb3rL1lyyy💻🌺~
