@@ -1,4 +1,4 @@
-Target: 10.10.154.62
+Target: 10.10.8.116
 
 
 From our nmap scan, I found 3 ports open
