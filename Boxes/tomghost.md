@@ -49,4 +49,5 @@ I found a way to exploit this ```/usr/bin/zip``` binary in https://gtfobins.gith
 
 
 
+
 ~cyb3rl1lyy💻🌺
